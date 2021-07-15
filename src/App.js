@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route,Redirect } from "react-router-dom";
 import 'bootstrap/scss/bootstrap.scss';
 import SearchBar from "./components/SearchBar";
 import Restaurants from "./components/Restaurants";
@@ -8,21 +8,20 @@ import Navbar from "./components/Navbar";
 
 
 function App() {
-  return (
-    <>
+  return (<>
+        <Navbar />
         <div className="row">
           <div className="col">
-          <Navbar />
-            <SearchBar />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-          <Route exact path="/restaurants" component={Restaurants}/>
-          <Route exact path="/restaurants/:restaurantId" component={RestaurantInfo}/>
-          <Route exact path="/tags" component={Tags}/>
-          <Route exact path="/tags/:tagId" component={Restaurants}/>
-          {/* <RestaurantInfo id='2' /> */}
+            <Route exact path="/">
+              <Redirect to="/search" />
+            </Route>
+            <Route exact path="/search" component={SearchBar}/> 
+            <Route exact path="/restaurants" component={Restaurants}/>
+            <Route exact path="/restaurants/:restaurantId" component={RestaurantInfo}/>
+            <Route exact path="/tags" component={Tags}/>
+            <Route exact path="/tags/:tagId" component={Restaurants}/>
+            <Route exact path="/cities" component={Tags}/>
+            <Route exact path="/cities/:cityId" component={Restaurants}/>
           </div>
         </div>
     </>

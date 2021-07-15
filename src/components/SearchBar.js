@@ -1,9 +1,6 @@
 import { useState } from "react";
 import './App.css';
 
-
-
-
 const SearchBar = () => {
     const bk = './images/bk.jpg'
     const [searchQuery, setSearchQuery] = useState('');
@@ -11,15 +8,9 @@ const SearchBar = () => {
         e.preventDefault();
     }
     return (
-
-
-        <div style={{ backgroundImage: `url("${bk}"` }}>
-
-
-
+        <div style={{ backgroundImage: `url("${bk}"`, width:'100%',height:'100%' }}>
             <div className="first row d-flex justify-content-center ">
                 <div className="col-md-12 mt-5 d-flex justify-content-center " >
-
                     <img src="/images/yelp.png" alt="yelp" />
                 </div>
             </div>

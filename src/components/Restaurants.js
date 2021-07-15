@@ -12,7 +12,11 @@ const Restaurants = ({match}) =>{
     }else if (match.path.startsWith('/tags')){
         url=`https://wbs-hackathon-backend.herokuapp.com/tags/${match.params.tagId}`;
         text='tag '+match.params.tagId;
+    }else if (match.path.startsWith('/cities')){
+        url=`https://wbs-hackathon-backend.herokuapp.com/cities/${match.params.cityId}`;
+        text='cityId '+match.params.cityId;
     }
+
     const [data,setData]=useState();
     const [loading,setLoading]=useState(true);
     console.log(url,text);
