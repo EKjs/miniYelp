@@ -1,14 +1,17 @@
 import { Route } from "react-router-dom";
 import 'bootstrap/scss/bootstrap.scss';
 import SearchBar from "./components/SearchBar";
+import Navbar from "./components/Navbar";
+
+
+
 
 function App() {
   return (
-        <div className="row">
-          <div className="col-2">
-            <SearchBar />
-          </div>
-        </div>
+    <>
+      <Navbar />
+      <SearchBar />
+    </>
   );
 }
 
