@@ -1,10 +1,12 @@
 import { Route } from "react-router-dom";
-import 'bootstrap/scss/bootstrap.scss'
+import 'bootstrap/scss/bootstrap.scss';
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
         <div className="row">
-          <div className="col">
+          <div className="col-2">
+            <SearchBar />
             <button className="btn btn-secondary">Search</button>
           </div>
         </div>
