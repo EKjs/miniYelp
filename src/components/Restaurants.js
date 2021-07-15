@@ -39,8 +39,8 @@ const Restaurants = ({match}) =>{
 
     return (
     <div className='row'>
-        <div className='col-5 mx-auto'>
-            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.name} city={item.city} avRating={item.avRating} commentsCount={item.comments.length} />)}
+        <div className='col-8 mx-auto'>
+            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.name} city={item.city} avRating={item.avRating} commentsCount={item.comments.length} pic={item.picture} />)}
         </div>
     </div>)
 }
