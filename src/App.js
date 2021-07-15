@@ -4,13 +4,15 @@ import SearchBar from "./components/SearchBar";
 import Restaurants from "./components/Restaurants";
 import RestaurantInfo from "./components/RestaurantInfo";
 import Tags from "./components/Tags";
+import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
     <>
-    
         <div className="row">
           <div className="col">
+          <Navbar />
             <SearchBar />
           </div>
         </div>
