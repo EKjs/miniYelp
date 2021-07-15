@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route } from "react-router-dom";
+import 'bootstrap/scss/bootstrap.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <div className="row">
+          <div className="col">
+            <button className="btn btn-secondary">Search</button>
+          </div>
+        </div>
   );
 }
 
 export default App;
+
+{/*
+<Route exact path="/" component={}/> 
+<Route exact path="/restaurants" component={Restaurant}/>
+<Route exact path="/restaurants/:restaurantId" component={Restaurants}/>
+
+<Route exact path="/tags" component={Tags}/>
+<Route exact path="/tags/:tagId" component={Tag}/>
+
+<Route exact path="/cities" component={Cities}/>
+<Route exact path="/cities/:tagId" component={City}/>
+
+import { Link } from "react-router-dom";
+<Link to={`/restaurants/${id}`}>
+  blabla
+</Link>
+*/}
