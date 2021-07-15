@@ -1,14 +1,29 @@
 import { Route } from "react-router-dom";
 import 'bootstrap/scss/bootstrap.scss';
 import SearchBar from "./components/SearchBar";
+import Restaurants from "./components/Restaurants";
+import RestaurantInfo from "./components/RestaurantInfo";
+import Tags from "./components/Tags";
 
 function App() {
   return (
+    <>
+    
         <div className="row">
-          <div className="col-2">
+          <div className="col">
             <SearchBar />
           </div>
         </div>
+        <div className="row">
+          <div className="col">
+          <Route exact path="/restaurants" component={Restaurants}/>
+          <Route exact path="/restaurants/:restaurantId" component={RestaurantInfo}/>
+          <Route exact path="/tags" component={Tags}/>
+          <Route exact path="/tags/:tagId" component={Restaurants}/>
+          {/* <RestaurantInfo id='2' /> */}
+          </div>
+        </div>
+    </>
   );
 }
 
