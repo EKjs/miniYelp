@@ -7,7 +7,6 @@ function App() {
         <div className="row">
           <div className="col-2">
             <SearchBar />
-            <button className="btn btn-secondary">Search</button>
           </div>
         </div>
   );
