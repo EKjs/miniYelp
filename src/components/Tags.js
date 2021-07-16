@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import Restaurant from "./Restaurant";
 import LoadingSkeleton from "./LoadingSkeleton";
 import { Link } from "react-router-dom";
 

@@ -1,9 +1,11 @@
 import { useCallback, useState } from "react";
 import { Link,NavLink,useLocation } from "react-router-dom";
 import Skeleton from '@material-ui/lab/Skeleton';
+import SearchBox from "./SearchBox";
 import { Carousel } from "bootstrap"; //without this line JS-BS doesn't work, even thou it's not used
 
 function Navbar() {
+    new Carousel();
     const curPage=useLocation();
     const url='https://wbs-hackathon-backend.herokuapp.com/tags/';
     const [tags,setTags]=useState();
@@ -13,7 +15,7 @@ function Navbar() {
         fetch(url)
         .then(res=>res.ok&&res.json())
         .then(data=>{
-            console.log('Got data',data);
+            console.log('Got tags: ',data);
             setTags(data);
             setLoading(false);
         })
@@ -56,10 +58,7 @@ function Navbar() {
               </li>
             </ul>
             {!curPage.pathname.startsWith('/search') &&
-                <form className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <SearchBox />
             }
           </div>
         </div>

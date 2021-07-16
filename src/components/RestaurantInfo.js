@@ -7,18 +7,17 @@ import { Link } from "react-router-dom";
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Comment from "./Comment";
 
-const RestaurantInfo = ({id}) => {
-    const url='https://wbs-hackathon-backend.herokuapp.com/restaurants/';
+const RestaurantInfo = () => {
+    const restId=useParams();
+    const url='https://wbs-hackathon-backend.herokuapp.com/restaurants/'+restId.restaurantId;
     const [data,setData]=useState();
     const [loading,setLoading]=useState(true);
-    const restId=id;//useParams();
 
     const loadData=useCallback(()=>{
         setLoading(true);
-        fetch(url+restId)
+        fetch(url)
         .then(res=>res.ok&&res.json())
         .then(data=>{
-            console.log('Got data',data);
             setData(data);
             setLoading(false);
         })
@@ -39,7 +38,7 @@ const RestaurantInfo = ({id}) => {
                         {data.tags.map((tag,i)=>(
                             <Link className='badge rounded-pill bg-secondary text-decoration-none' key={`tagN${i}`} to={`/tags/${tag.id}`}>{tag.tag}{ }</Link>
                         ))}
-                        <img className='d-block' src={data.picture} />
+                        <img className='d-block' src={data.picture} alt={data.name} />
                         
                         <p>in <Link className='text-decoration-none' to={`/cities/${data.city.id}`}>{data.city.name}</Link></p>
                     </div>

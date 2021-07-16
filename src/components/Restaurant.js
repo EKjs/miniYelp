@@ -12,7 +12,7 @@ const Restaurant = ({id,name,city,avRating,commentsCount,pic}) =>{
                 <p><Link className='text-decoration-none' to={`/restaurants/${id}`}>{commentsCount}</Link> comments</p>
             </div>
             <div className='col'>
-                <img src={pic} />
+                <img src={pic} alt={name} />
             </div>
         </div>
     )

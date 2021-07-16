@@ -6,7 +6,7 @@ const Restaurants = ({match}) =>{
     console.log(match);
     let url;
     let text;
-    if (match.path=='/restaurants'){
+    if (match.path.startsWith('/restaurants')){
         url='https://wbs-hackathon-backend.herokuapp.com/restaurants/';
         text='restaurants';
     }else if (match.path.startsWith('/tags')){
