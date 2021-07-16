@@ -28,7 +28,7 @@ function Navbar() {
                 <NavLink className="nav-link" activeClassName="active" to="/tags">Tags</NavLink>
               </li>
             </ul>
-            {!curPage.pathname.startsWith('/main') &&
+            {!curPage.pathname.startsWith('/main') && !curPage.pathname.startsWith('/search') &&
                 <SearchBox />
             }
           </div>
