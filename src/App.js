@@ -5,6 +5,7 @@ import Restaurants from "./components/Restaurants";
 import RestaurantInfo from "./components/RestaurantInfo";
 import Tags from "./components/Tags";
 import Navbar from "./components/Navbar";
+import AddData from "./components/AddData";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/tags" component={Tags}/>
       <Route exact path="/tags/:tagId" component={Restaurants}/>
       <Route exact path="/cities" component={Tags}/>
+      <Route exact path="/add" component={AddData}/>
       <Route exact path="/cities/:cityId" component={Restaurants}/>
       <Route exact path="/search/:searchQuery" component={Restaurants}/>
     </>
