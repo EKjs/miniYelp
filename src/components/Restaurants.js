@@ -3,7 +3,6 @@ import Restaurant from "./Restaurant";
 import LoadingSkeleton from "./LoadingSkeleton";
 
 const Restaurants = ({match}) =>{
-    console.log(match);
     let url;
     let text;
     if (match.path.startsWith('/restaurants')){
@@ -16,31 +15,36 @@ const Restaurants = ({match}) =>{
         url=`https://wbs-hackathon-backend.herokuapp.com/cities/${match.params.cityId}`;
         text='cityId '+match.params.cityId;
     }
-
+    const [err,setErr]=useState(false);
     const [data,setData]=useState();
     const [loading,setLoading]=useState(true);
-    console.log(url,text);
+    console.log(text);
 
     const loadData=useCallback(()=>{
         setLoading(true);
+        console.log('fetching url', url);
         fetch(url)
-        .then(res=>res.ok&&res.json())
+        .then(res=>res.json())
         .then(data=>{
-            console.log('Got data',data);
+            console.log('Got data >',data);
             setData(data);
             setLoading(false);
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            setErr(true);
+            setLoading(false);
+            console.log(err)})
     },[url]);
 
     useState(()=>{
         loadData();
     },[loadData]);
 
+    if (err)return <h3>Error while trying to get data from server.</h3>
     return (
     <div className='row'>
         <div className='col-8 mx-auto'>
-            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.name} city={item.city} avRating={item.avRating} commentsCount={item.comments.length} pic={item.picture} />)}
+            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.restaurant_name} cityId={item.city_id} city={item.city_name} avRating={item.avRating} commentsCount={item.comments.length} pic={item.picture} />)}
         </div>
     </div>)
 }

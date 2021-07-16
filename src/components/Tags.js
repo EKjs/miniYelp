@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import LoadingSkeleton from "./LoadingSkeleton";
 import { Link } from "react-router-dom";
 
-const Tags = () => {
-    const url='https://wbs-hackathon-backend.herokuapp.com/tags/';
+const Tags = ({match}) => {
+    const url=match.path.startsWith('/tags') ? 'https://wbs-hackathon-backend.herokuapp.com/tags/' : 'https://wbs-hackathon-backend.herokuapp.com/cities/';
     const [data,setData]=useState();
     const [loading,setLoading]=useState(true);
 
@@ -27,7 +27,7 @@ const Tags = () => {
     <div className='row'>
         <div className='col-5 mx-auto'>
             {loading ? <LoadingSkeleton/> : 
-            data.map(item=><Link to={`/tags/${item.id}`} className='btn btn-primary' key={`tagK${item.id}`}>{item.tag}</Link>)}
+            data.map(item=><Link to={match.path.startsWith('/tags') ? `/tags/${item.id}` : `/cities/${item.id}`} className='btn btn-primary' key={`tagK${item.id}`}>{item.name}</Link>)}
         </div>
     </div>)
 }
