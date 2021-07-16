@@ -14,6 +14,9 @@ const Restaurants = ({match}) =>{
     }else if (match.path.startsWith('/cities')){
         url=`https://wbs-hackathon-backend.herokuapp.com/cities/${match.params.cityId}`;
         text='cityId '+match.params.cityId;
+    }else if (match.path.startsWith('/search')){
+        url=`https://wbs-hackathon-backend.herokuapp.com/search/${match.params.searchQuery}`;
+        text='searching '+match.params.searchQuery;
     }
     const [err,setErr]=useState(false);
     const [data,setData]=useState();
@@ -44,7 +47,7 @@ const Restaurants = ({match}) =>{
     return (
     <div className='row'>
         <div className='col-8 mx-auto'>
-            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.restaurant_name} cityId={item.city_id} city={item.city_name} avRating={item.avRating} commentsCount={item.comments.length} pic={item.picture} />)}
+            {loading ? <LoadingSkeleton/> : data.map(item=><Restaurant key={item.id} id={item.id} name={item.restaurant_name} tags={item.tags} desc={item.description} cityId={item.city_id} city={item.city_name} avRating={item.avRating} commentsCount={item.comments.length} pic={item.picture} />)}
         </div>
     </div>)
 }

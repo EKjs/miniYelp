@@ -11,15 +11,16 @@ function App() {
   return (<>
       <Navbar />
       <Route exact path="/">
-        <Redirect to="/search" />
+        <Redirect to="/main" />
       </Route>
-      <Route exact path="/search" component={MainPage}/> 
+      <Route exact path="/main" component={MainPage}/> 
       <Route exact path="/restaurants" component={Restaurants}/>
       <Route exact path="/restaurants/:restaurantId" component={RestaurantInfo}/>
       <Route exact path="/tags" component={Tags}/>
       <Route exact path="/tags/:tagId" component={Restaurants}/>
       <Route exact path="/cities" component={Tags}/>
       <Route exact path="/cities/:cityId" component={Restaurants}/>
+      <Route exact path="/search/:searchQuery" component={Restaurants}/>
     </>
   );
 }

@@ -62,7 +62,7 @@ const RestaurantInfo = () => {
                 </div>
                 <div className='row'>
                     <div className='col'>
-                        {data.comments ? data.comments.map((comm,i)=><Comment key={`cnmtN${i}`} name={comm.name} rating={comm.rating} comment={comm.comment} />) :
+                        {data.comments ? data.comments.map((comm,i)=><Comment key={`cnmtN${i}`} name={comm.name} rating={comm.rating} comment={comm.text} date={comm.date} />) :
                         "No comments yet "
                         }
                     </div>
@@ -72,9 +72,9 @@ const RestaurantInfo = () => {
                 {data.lan && data.lat ? 
                 <GoogleMapReact
                 bootstrapURLKeys={{ key: "" }}
-                defaultCenter={[data.lan,data.lat]}
+                defaultCenter={[data.lat ,data.lan]}//data.lan,data.lat
                 defaultZoom={11}>
-                <IconOnMap lat={data.lat}lng={data.lan} text={data.restaurant_name} />
+                <IconOnMap lat={data.lat} lng={data.lan} text={data.restaurant_name} />
                 </GoogleMapReact>
                 :
                 "No coodinates"
