@@ -1,5 +1,5 @@
 import { Route,Redirect } from "react-router-dom";
-import 'bootstrap/scss/bootstrap.scss';
+//import 'bootstrap/scss/bootstrap.scss';
 import SearchBar from "./components/SearchBar";
 import Restaurants from "./components/Restaurants";
 import RestaurantInfo from "./components/RestaurantInfo";
@@ -20,7 +20,6 @@ function App() {
       <Route exact path="/tags/:tagId" component={Restaurants}/>
       <Route exact path="/cities" component={Tags}/>
       <Route exact path="/cities/:cityId" component={Restaurants}/>
-            
     </>
   );
 }
