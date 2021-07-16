@@ -34,7 +34,7 @@ const AddData = () => {
           return await response.json();
     }
     const addTag=()=>{
-        sendData(urlTags,{name:tagText}).then(data=>console.log(data))
+        sendData(urlTags,{tag:tagText}).then(data=>console.log(data))
     }
     const addCity=()=>{
         sendData(urlCities,{name:cityName}).then(data=>console.log(data))
@@ -95,7 +95,7 @@ const AddData = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>Add a new city</h2>
-                    <input type='text' placeholder='input new tag here' onChange={(e)=>setCityName(e.target.value)} />
+                    <input type='text' placeholder='input new city here' onChange={(e)=>setCityName(e.target.value)} />
                     <button onClick={addCity}>Send</button>
                 </TabPanel>
                 <TabPanel>
